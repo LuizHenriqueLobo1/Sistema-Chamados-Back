@@ -1,6 +1,7 @@
 package br.edu.ifba.app.dtos;
 
 import br.edu.ifba.app.models.Usuario;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;

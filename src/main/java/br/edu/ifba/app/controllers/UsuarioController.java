@@ -7,8 +7,10 @@ import br.edu.ifba.app.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -36,8 +38,8 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable String id, @RequestBody UsuarioForm usuarioForm) {
-        return usuarioService.atualizarUsuario(id, usuarioForm);
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable String id, @RequestParam("nome") String nome, @RequestPart("imagem") MultipartFile imagem) throws IOException {
+        return usuarioService.atualizarUsuario(id, nome, imagem);
     }
 
     @DeleteMapping("/{id}")

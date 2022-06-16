@@ -1,8 +1,6 @@
 package br.edu.ifba.app.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 @Entity
 public class Usuario {
@@ -16,10 +14,9 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String id, String nome, byte[] foto) {
+    public Usuario(String id, String nome) {
         this.id   = id;
         this.nome = nome;
-        this.foto = foto;
     }
 
     public String getId() {

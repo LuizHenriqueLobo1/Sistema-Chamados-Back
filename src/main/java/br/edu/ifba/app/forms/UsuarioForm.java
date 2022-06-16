@@ -1,7 +1,6 @@
 package br.edu.ifba.app.forms;
 
 import br.edu.ifba.app.models.Usuario;
-import br.edu.ifba.app.repository.UsuarioRepository;
 
 public class UsuarioForm {
 
@@ -15,15 +14,6 @@ public class UsuarioForm {
     public UsuarioForm(Usuario usuario) {
         this.id   = usuario.getId();
         this.nome = usuario.getNome();
-        this.foto = usuario.getFoto();
-    }
-
-    public Usuario atualiza(String id, UsuarioRepository usuarioRepository) {
-        Usuario usuario = usuarioRepository.getReferenceById(id);
-        usuario.setId(this.id);
-        usuario.setNome(this.nome);
-        usuario.setFoto(this.foto);
-        return usuario;
     }
 
     public String getId() {

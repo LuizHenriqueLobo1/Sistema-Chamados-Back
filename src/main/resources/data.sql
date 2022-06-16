@@ -9,3 +9,7 @@ VALUES
 (1, 'SUPORTE',    'EM_ABERTO',    'Estou com problema na plataforma.', '13/06/2022'),
 (2, 'FINANCEIRO', 'EM_PROGRESSO', 'Meu pagaento não foi efetuado.',    '04/03/2022'),
 (3, 'VISITA',     'ATENDIDO',     'Desejo marcar uma visita.',         '14/06/2022');
+
+INSERT INTO USUARIO(ID, NOME, FOTO)
+VALUES
+('unurGLSoWug3phIAU9w8PqipCJ02', 'Teste', null)

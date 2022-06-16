@@ -21,7 +21,7 @@ public class UsuarioService {
         return UsuarioDto.converte(usuarioRepository.findAll());
     }
 
-    public UsuarioDto listarUsuario(long id) {
+    public UsuarioDto listarUsuario(String id) {
         return new UsuarioDto(usuarioRepository.getReferenceById(id));
     }
 
@@ -35,12 +35,12 @@ public class UsuarioService {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    public ResponseEntity<Usuario> atualizarUsuario(long id, UsuarioForm usuarioForm) {
+    public ResponseEntity<Usuario> atualizarUsuario(String id, UsuarioForm usuarioForm) {
         usuarioForm.atualiza(id, usuarioRepository);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    public ResponseEntity<Usuario> deletarUsuario(long id) {
+    public ResponseEntity<Usuario> deletarUsuario(String id) {
         usuarioRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

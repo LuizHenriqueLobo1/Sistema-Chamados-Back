@@ -25,7 +25,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public UsuarioDto listarUsuario(@PathVariable long id) {
+    public UsuarioDto listarUsuario(@PathVariable String id) {
         return usuarioService.listarUsuario(id);
     }
 
@@ -36,13 +36,13 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable long id, @RequestBody UsuarioForm usuarioForm) {
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable String id, @RequestBody UsuarioForm usuarioForm) {
         return usuarioService.atualizarUsuario(id, usuarioForm);
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity<Usuario> deletarUsuario(@PathVariable long id) {
+    public ResponseEntity<Usuario> deletarUsuario(@PathVariable String id) {
         return usuarioService.deletarUsuario(id);
     }
 }

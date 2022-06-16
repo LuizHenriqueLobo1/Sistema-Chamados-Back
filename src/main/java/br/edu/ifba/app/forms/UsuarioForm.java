@@ -18,7 +18,7 @@ public class UsuarioForm {
         this.foto = usuario.getFoto();
     }
 
-    public Usuario atualiza(long id, UsuarioRepository usuarioRepository) {
+    public Usuario atualiza(String id, UsuarioRepository usuarioRepository) {
         Usuario usuario = usuarioRepository.getReferenceById(id);
         usuario.setId(this.id);
         usuario.setNome(this.nome);

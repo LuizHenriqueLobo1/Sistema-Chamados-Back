@@ -42,7 +42,7 @@ public class ClienteService {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    public ResponseEntity<Cliente> deletaCliente(long id) {
+    public ResponseEntity<Cliente> deletarCliente(long id) {
         clienteRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

@@ -12,4 +12,4 @@ VALUES
 
 INSERT INTO USUARIO(ID, NOME, FOTO)
 VALUES
-('unurGLSoWug3phIAU9w8PqipCJ02', 'Teste', null)
+('U2xhgptRACM4lZG2LtxQZonZJDi2', 'Luiz Henrique', null)

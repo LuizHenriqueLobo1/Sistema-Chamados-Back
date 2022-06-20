@@ -5,11 +5,12 @@ import br.edu.ifba.app.models.Chamado;
 import br.edu.ifba.app.models.Cliente;
 import br.edu.ifba.app.models.Status;
 import br.edu.ifba.app.repository.ChamadoRepository;
+import br.edu.ifba.app.repository.ClienteRepository;
 
 public class ChamadoForm {
 
     private long id;
-    private Cliente cliente;
+    private long cliente;
     private Assunto assunto;
     private Status status;
     private String complemento;
@@ -19,17 +20,17 @@ public class ChamadoForm {
 
     public ChamadoForm(Chamado chamado) {
         this.id          = chamado.getId();
-        this.cliente     = chamado.getCliente();
+        this.cliente     = chamado.getCliente().getId();
         this.assunto     = chamado.getAssunto();
         this.status      = chamado.getStatus();
         this.complemento = chamado.getComplemento();
         this.data        = chamado.getData();
     }
 
-    public Chamado atualiza(long id, ChamadoRepository chamadoRepository) {
+    public Chamado atualiza(long id, ChamadoRepository chamadoRepository, ClienteRepository clienteRepository) {
         Chamado chamado = chamadoRepository.getReferenceById(id);
         chamado.setId(this.id);
-        chamado.setCliente(this.cliente);
+        chamado.setCliente(clienteRepository.getReferenceById(this.cliente));
         chamado.setAssunto(this.assunto);
         chamado.setStatus(this.status);
         chamado.setComplemento(this.complemento);
@@ -41,7 +42,7 @@ public class ChamadoForm {
         return id;
     }
 
-    public Cliente getCliente() {
+    public long getCliente() {
         return cliente;
     }
 
@@ -65,7 +66,7 @@ public class ChamadoForm {
         this.id = id;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(long cliente) {
         this.cliente = cliente;
     }
 

@@ -4,6 +4,7 @@ import br.edu.ifba.app.dtos.ChamadoDto;
 import br.edu.ifba.app.forms.ChamadoForm;
 import br.edu.ifba.app.models.Chamado;
 import br.edu.ifba.app.repository.ChamadoRepository;
+import br.edu.ifba.app.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,8 @@ public class ChamadoService {
 
     @Autowired
     ChamadoRepository chamadoRepository;
+    @Autowired
+    ClienteRepository clienteRepository;
 
     public List<ChamadoDto> listarChamados() {
         return ChamadoDto.converte(chamadoRepository.findAll());
@@ -28,7 +31,7 @@ public class ChamadoService {
     public ResponseEntity<Chamado> registrarChamado(ChamadoForm chamadoForm) {
         Chamado chamado = new Chamado(
                 chamadoForm.getId(),
-                chamadoForm.getCliente(),
+                clienteRepository.getReferenceById(chamadoForm.getCliente()),
                 chamadoForm.getAssunto(),
                 chamadoForm.getStatus(),
                 chamadoForm.getComplemento(),
@@ -39,7 +42,7 @@ public class ChamadoService {
     }
 
     public ResponseEntity<Chamado> atualizarChamado(long id, ChamadoForm chamadoForm) {
-        chamadoForm.atualiza(id, chamadoRepository);
+        chamadoForm.atualiza(id, chamadoRepository, clienteRepository);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

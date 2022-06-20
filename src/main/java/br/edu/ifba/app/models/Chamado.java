@@ -14,6 +14,7 @@ public class Chamado {
     private Assunto assunto;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @Column(columnDefinition = "LONGTEXT")
     private String complemento;
     private String data;
 

@@ -1,5 +1,8 @@
 package br.edu.ifba.app.models;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity(name = "chamado")
@@ -9,6 +12,7 @@ public class Chamado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Cliente cliente;
     @Enumerated(EnumType.STRING)
     private Assunto assunto;

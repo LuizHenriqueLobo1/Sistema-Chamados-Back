@@ -9,4 +9,4 @@
 
 - [x] Cliente
 - [x] Chamado
-- [ ] Usuário
+- [x] Usuário
